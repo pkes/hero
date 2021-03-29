@@ -1,0 +1,40 @@
+{
+  "heros": [
+    {
+      "id": 2,
+      "name": "HULK"
+    },
+    {
+      "id": 3,
+      "name": "LOBEZNO"
+    },
+    {
+      "id": 4,
+      "name": "CAPTAIN AMERICA"
+    },
+    {
+      "id": 5,
+      "name": "SUPER MAN"
+    },
+    {
+      "id": 6,
+      "name": "ANTORCHA HUMANA"
+    },
+    {
+      "id": 7,
+      "name": "BLACK PANTHER"
+    },
+    {
+      "id": 8,
+      "name": "BATMAN"
+    },
+    {
+      "id": 9,
+      "name": "LA COSA"
+    },
+    {
+      "id": 10,
+      "name": "IRON MAN"
+    }
+  ]
+}

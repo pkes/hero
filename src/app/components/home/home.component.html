@@ -1,0 +1,17 @@
+<div class="container">
+  <mat-toolbar color="secondary">
+    <h2 mat-dialog-title>Super Heros</h2>
+  </mat-toolbar>
+  <mat-card class="mat-elevation-z8">
+    <mat-card-header>
+      <mat-card-title color="primary">CREA TUS SUPER HEROES FAVORITOS</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="../../../assets/images/superheroes-marvel.jpg" style="width: 90%; margin-left: 5%" />
+    <mat-card-content>
+      <span>Creado con Angular 11 y permiso de M4rv3| </span>
+      <mat-card-actions>
+        <button mat-raised-button color="warn" [routerLink]="'/heros'">HEROES</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</div>

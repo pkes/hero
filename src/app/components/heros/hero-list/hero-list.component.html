@@ -1,0 +1,97 @@
+<div class="container">
+  <mat-toolbar color="secondary">
+    <h2 mat-dialog-title>Super Heros</h2>
+  </mat-toolbar>
+
+  <mat-card>
+    <div class="form">
+      <mat-form-field color="accent">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Spiderman" #input />
+      </mat-form-field>
+    </div>
+    <div class="mat-elevation-z8">
+      <mat-table [dataSource]="dataSource!" class="mat-elevation-z8" matSort>
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>NAME</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.name }}</mat-cell>
+        </ng-container>
+
+        <!-- actions -->
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef>
+            <button mat-icon-button color="primary" [routerLink]="'hero'">
+              <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+            </button>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row; let i = currentPage">
+            <button mat-icon-button color="accent" [routerLink]="['hero/', row.id]">
+              <mat-icon aria-label="Edit">edit</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" (click)="deleteHero(row)">
+              <mat-icon aria-label="Delete">delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" *ngIf="dataSource!.data.length !== 0" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
+          <td class="mat-cell" *ngIf="dataSource!.data.length === 0" colspan="4">No results</td>
+        </tr>
+      </mat-table>
+      <mat-paginator
+        showFirstLastButtons
+        [length]="dataSource!.data.length"
+        [pageIndex]="0"
+        [pageSize]="5"
+        [pageSizeOptions]="[5, 10, 20]"
+      >
+      </mat-paginator>
+    </div>
+    <!--
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" #tabla1>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>id</th>
+      <td mat-cell *matCellDef="let hero">{{ hero.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>name</th>
+      <td mat-cell *matCellDef="let hero">{{ hero.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary" [routerLink]="'hero'">
+          <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i = currentPage">
+        <button mat-icon-button color="accent" [routerLink]="['hero/', row.id]">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+        <button mat-icon-button color="accent" (click)="deleteHero(row.id)">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{ input.value }}"</td>
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+-->
+  </mat-card>
+</div>

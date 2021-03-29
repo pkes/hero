@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <div class="toolbar-tools">
+    <a
+      class="menu-item"
+      color="accent"
+      mat-button
+      [routerLink]="['']"
+      routerLinkActive="menu-item-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <mat-icon aria-label="Home">home</mat-icon><span>Home</span>
+    </a>
+    <a
+      class="menu-item"
+      color="accent"
+      mat-button
+      [routerLink]="'/heros'"
+      routerLinkActive="menu-item-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <mat-icon aria-label="Edit">edit</mat-icon><span>Heros</span>
+    </a>
+  </div>
+</mat-toolbar>

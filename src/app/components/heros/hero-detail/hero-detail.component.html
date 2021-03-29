@@ -1,0 +1,44 @@
+<div class="container">
+  <mat-toolbar color="secondary">
+    <h2 mat-dialog-title>Super Heros</h2>
+  </mat-toolbar>
+
+  <mat-card>
+    <div class="mat-elevation-z8">
+      <mat-card-header color="primary">
+        <mat-card-title mat-dialog-title *ngIf="isAddMode">Crear Hero</mat-card-title>
+        <mat-card-title color="secondary" mat-dialog-title *ngIf="!isAddMode">Editar Hero</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="mat-elevation-z4">
+        <form class="mat-dialog-content" [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+          <h2 mat>{{ heroForm.value.name | uppercase }}</h2>
+          <div class="row">
+            <mat-form-field color="accent" *ngIf="!isAddMode">
+              <input matInput formControlName="id" placeholder="Id" required readonly />
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field color="accent">
+              <mat-label>Nombre</mat-label>
+              <input
+                matInput
+                appToUpperCase
+                autocapitalize="words"
+                placeholder="Ex. Hulk"
+                formControlName="name"
+                required
+              />
+              <mat-error *ngIf="heroForm.get('name')!.hasError('required')"> El nombre es requerido </mat-error>
+            </mat-form-field>
+          </div>
+          <div mat-dialog-actions>
+            <button mat-button class="menu-item" [disabled]="loading">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Save
+            </button>
+            <button mat-button [routerLink]="'/heros'">Cancel</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>
